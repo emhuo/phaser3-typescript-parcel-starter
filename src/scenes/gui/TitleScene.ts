@@ -7,6 +7,7 @@ import FontKeys from '~/constants/FontKeys'
 import Viewport from '~/constants/DisplayKeys'
 
 import { addDitherGradient } from '~/utils/GraphicUtils'
+import CameraControls from '../../effects/CameraControls'
 
 export default class TitleScene extends Phaser.Scene
 {
@@ -17,7 +18,7 @@ export default class TitleScene extends Phaser.Scene
 
   init()
   {
-
+		this.anims.createFromAseprite(TextureKeys.START_PROMPT)
   }
 
   preload()
@@ -29,7 +30,14 @@ export default class TitleScene extends Phaser.Scene
 	{
 		addDitherGradient(this)
 
-		this.add.bitmapText(
-			Viewport.CENTER.x, Viewport.CENTER.y, FontKeys.CLEAN_PLATE,'Title Scene Test').setOrigin(0.5)
+		const titleText = this.add.bitmapText(Viewport.CENTER.x, Viewport.HEIGHT * 0.4, FontKeys.BOLD_PLASTIC, 'Phaser Project Starter')
+			.setOrigin(0.5)
+
+		const startPrompt = this.add.sprite(Viewport.CENTER.x, Viewport.HEIGHT * 0.75, TextureKeys.START_PROMPT)
+			.play({ key: 'pink-button', frameRate: 6, repeat: -1, repeatDelay: 800 })
+
+		this.input.keyboard.once('keydown-ENTER', () => {
+			CameraControls.FADE_OUT(this, SceneKeys.DEMO_SCENE)
+		})
 	}
 }
