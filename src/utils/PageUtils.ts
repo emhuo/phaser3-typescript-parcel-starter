@@ -7,6 +7,19 @@ const addCanvasBackground = (imageUrl: string) => {
   div.style.background = style
 }
 
+const openExternalWindow = (url: string) => {
+  const page = window.open(url, '_blank')
+  if (page && page.focus)
+  {
+    page.focus()
+  }
+  else if (!page)
+  {
+    window.location.href = url
+  }
+}
+
 export {
-  addCanvasBackground
+  addCanvasBackground,
+  openExternalWindow
 }

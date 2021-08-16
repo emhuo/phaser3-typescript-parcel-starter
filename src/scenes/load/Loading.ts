@@ -1,10 +1,10 @@
 import Phaser from 'phaser'
 
-import GradientKeys from '~/constants/colors/GradientKeys'
 import SceneKeys from '~/constants/SceneKeys'
 import Viewport from '~/constants/DisplayKeys'
 
 import Tweens from '../../effects/tweens'
+import { addGradientOverlay } from '../../utils/GraphicUtils'
 
 export default class Loading extends Phaser.Scene
 {
@@ -15,15 +15,7 @@ export default class Loading extends Phaser.Scene
 
 	create()
 	{
-    this.add.graphics()
-      .fillGradientStyle(
-        GradientKeys.GLASS_OVERLAY.topLeft,
-        GradientKeys.GLASS_OVERLAY.topLeft,
-        GradientKeys.GLASS_OVERLAY.topLeft,
-        GradientKeys.GLASS_OVERLAY.topLeft
-      ).fillRect(0, 0, Viewport.WIDTH, Viewport.HEIGHT).setAlpha(0.75)
-
+		addGradientOverlay(this)
     Tweens.addLoadEllipses(this)
-
 	}
 }

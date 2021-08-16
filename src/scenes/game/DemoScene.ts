@@ -4,6 +4,8 @@ import SceneKeys from '~/constants/SceneKeys'
 import TextureKeys from '~/constants/TextureKeys'
 import FontKeys from '~/constants/FontKeys'
 
+import { addRepeatingColumns } from '../../utils/GraphicUtils'
+
 export default class DemoScene extends Phaser.Scene
 {
 	constructor()
@@ -23,6 +25,6 @@ export default class DemoScene extends Phaser.Scene
 
 	create()
 	{
-
+		addRepeatingColumns(this)
 	}
 }
