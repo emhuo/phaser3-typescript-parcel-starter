@@ -1,6 +1,7 @@
 enum TextureKeys
 {
   CLOUDS = 'clouds',
-  CLOUDS_DOUBLE= 'clouds-double',
+  SOCIAL_ICONS = 'social-icons',
+  START_PROMPT = 'start-prompt'
 }
 export default TextureKeys

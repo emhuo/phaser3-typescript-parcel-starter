@@ -1,6 +1,6 @@
 # Phaser 3 Typescript Starter
 
-![Phaser Typescript Parcel Banner](https://github.com/emhuo/phaser3-typescript-parcel-starter/blob/main/public/img/media/phaser-ts-parcel-banner.png?raw=true)
+![Project Banner](https://github.com/emhuo/phaser3-typescript-parcel-starter/blob/main/public/img/media/project-banner.png?raw=true)
 
 A pre-structured Phaser starter project that uses Typescript and Parcel. Includes various utilities to expedite development during game jams.
 
