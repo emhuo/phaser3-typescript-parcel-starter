@@ -1,13 +1,6 @@
 import Phaser from 'phaser'
 import Viewport from '~/constants/DisplayKeys'
 
-interface ITweenConfig
-{
-	totalDuration?: number,
-	fadeOffsetTime?: number,
-	fadeOutDuration?: number
-}
-
 enum TweenTime
 {
   TOTAL = 400,
@@ -28,14 +21,8 @@ const createDots = (scene: Phaser.Scene, dotSize: number, dotColor: number) => {
   return dots
 }
 
-const createDotsTween = (scene: Phaser.Scene, dots: Phaser.GameObjects.Arc[] = [], config: ITweenConfig = {}) => {
+const createDotsTween = (scene: Phaser.Scene, dots: Phaser.GameObjects.Arc[] = []) => {
   const tweenTimeline = scene.tweens.timeline({ loop: -1 })
-
-  const {
-    totalDuration = TweenTime.TOTAL,
-    fadeOffsetTime = TweenTime.OFFSET,
-    fadeOutDuration = TweenTime.FADE
-  } = config
 
   let offset = 0
   for (let i = 0; i < dots.length; ++i)
@@ -45,17 +32,17 @@ const createDotsTween = (scene: Phaser.Scene, dots: Phaser.GameObjects.Arc[] = [
     tweenTimeline.add({
       targets: dot,
       alpha: 1,
-      duration: totalDuration,
+      duration: TweenTime.TOTAL,
       ease: Phaser.Math.Easing.Sine.In,
       offset
     })
-    offset += fadeOffsetTime
+    offset += TweenTime.OFFSET
   }
 
   tweenTimeline.add({
     targets: dots,
     alpha: 0,
-    duration: fadeOutDuration
+    duration: TweenTime.FADE
   })
   return tweenTimeline
 }
@@ -66,71 +53,10 @@ const getEllipsesOffset = (dotSize: number) => {
   return offset
 }
 
-const loadEllipses = (scene: Phaser.Scene, x = Viewport.CENTER.x, y = Viewport.CENTER.y, dotSize = 8, dotColor = 0xFFFFFF) => {
+export const addLoadEllipses = (scene: Phaser.Scene, x = Viewport.CENTER.x, y = Viewport.CENTER.y, dotSize = 8, dotColor = 0xFFFFFF) => {
   const dots = createDots(scene, dotSize, dotColor)
   const dotsTween = createDotsTween(scene, dots)
   dotsTween.play()
   const offsetX = getEllipsesOffset(dotSize)
   scene.add.container(x - offsetX, y, dots)
-}
-
-const playEllipsesTween = (scene: Phaser.Scene, x = Viewport.CENTER.x, y = Viewport.CENTER.y, dotSize = 8, dotColor = 0xFFFFFF) => {
-  const dots = createDots(scene, dotSize, dotColor)
-  const dotsTween = createDotsTween(scene, dots)
-  dotsTween.play()
-  const offsetX = getEllipsesOffset(dotSize)
-  scene.add.container(x - offsetX, y, dots)
-}
-
-
-/********
-
-play(config: IAnimationConfig = {})
-{
-  if (!this.graphics) {
-    this.make()
-  }
-
-  const {
-    dotFadeDuration = 400,
-    dotFadeOffset = 200,
-    dotsFadeOutDuration = 100
-  } = config
-
-  this.timeline = this.scene.tweens.timeline({ loop: -1 })
-
-  let offset = 0
-
-  for (let i = 0; i < this.dots.length; ++i)
-  {
-    const dot = this.dots[i]
-    dot.setAlpha(0)
-
-    this.timeline.add({
-      targets: dot,
-      alpha: 1,
-      duration: dotFadeDuration,
-      ease: Phaser.Math.Easing.Sine.In,
-      offset
-    })
-
-    offset += dotFadeOffset
-  }
-
-  this.timeline.add({
-    targets: this.dots,
-    alpha: 0,
-    duration: dotsFadeOutDuration
-  })
-
-  this.timeline.play()
-
-  return this
-}
-
-*******/
-
-export {
-  loadEllipses,
-  playEllipsesTween
 }

@@ -5,7 +5,8 @@ import TextureKeys from '~/constants/TextureKeys'
 import FontKeys from '~/constants/FontKeys'
 
 import Viewport from '~/constants/DisplayKeys'
-import RepeatingBackground from '../../components/RepeatingBackground'
+
+import { addDitherGradient } from '~/utils/GraphicUtils'
 
 export default class TitleScene extends Phaser.Scene
 {
@@ -26,11 +27,9 @@ export default class TitleScene extends Phaser.Scene
 
 	create()
 	{
+		addDitherGradient(this)
+
 		this.add.bitmapText(
-			Viewport.CENTER.x,
-			Viewport.CENTER.y,
-			FontKeys.MOON_PAINT,
-			'Title Scene Test'
-		).setOrigin(0.5)
+			Viewport.CENTER.x, Viewport.CENTER.y, FontKeys.CLEAN_PLATE,'Title Scene Test').setOrigin(0.5)
 	}
 }
