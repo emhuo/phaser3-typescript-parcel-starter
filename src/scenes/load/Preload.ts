@@ -30,10 +30,12 @@ export default class Preload extends Phaser.Scene
 		this.load.setPath('img/background/')
 		this.load.image(TextureKeys.CLOUDS, 'clouds.png')
 
+
 		this.load.setPath('img/gui/')
 		this.load.aseprite(TextureKeys.START_PROMPT, 'start-prompt.png', 'start-prompt.json')
 
 		this.load.setPath('img/icons/')
+		this.load.image(TextureKeys.PAW_TILE, 'paw-tile.png')
 		this.load.atlas(TextureKeys.SOCIAL_ICONS, 'social-icons.png', 'social-icons.json')
   }
 

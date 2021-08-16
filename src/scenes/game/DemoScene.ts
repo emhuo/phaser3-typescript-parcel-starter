@@ -1,10 +1,12 @@
 import Phaser from 'phaser'
+import Viewport from '~/constants/DisplayKeys'
 
 import SceneKeys from '~/constants/SceneKeys'
 import TextureKeys from '~/constants/TextureKeys'
 import FontKeys from '~/constants/FontKeys'
 
-import { addRepeatingColumns } from '../../utils/GraphicUtils'
+import { addDitherGradient } from '../../utils/GraphicUtils'
+import RepeatingBackground from '../../components/background/RepeatingBackground'
 
 export default class DemoScene extends Phaser.Scene
 {
@@ -15,7 +17,7 @@ export default class DemoScene extends Phaser.Scene
 
   init()
   {
-
+		this.scene.launch(SceneKeys.HUD_SCENE)
   }
 
   preload()
@@ -25,6 +27,7 @@ export default class DemoScene extends Phaser.Scene
 
 	create()
 	{
-		addRepeatingColumns(this)
+		addDitherGradient(this)
+		new RepeatingBackground(this, TextureKeys.PAW_TILE)
 	}
 }

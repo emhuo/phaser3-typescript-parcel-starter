@@ -1,12 +1,11 @@
 import Phaser from 'phaser'
+import Viewport from '~/constants/DisplayKeys'
 
 import SceneKeys from '~/constants/SceneKeys'
 import TextureKeys from '~/constants/TextureKeys'
 import FontKeys from '~/constants/FontKeys'
 
-import Viewport from '~/constants/DisplayKeys'
-
-import { addDitherGradient } from '~/utils/GraphicUtils'
+import { addRepeatingColumns } from '~/utils/GraphicUtils'
 import CameraControls from '../../effects/CameraControls'
 
 export default class TitleScene extends Phaser.Scene
@@ -28,7 +27,7 @@ export default class TitleScene extends Phaser.Scene
 
 	create()
 	{
-		addDitherGradient(this)
+		addRepeatingColumns(this)
 
 		const titleText = this.add.bitmapText(Viewport.CENTER.x, Viewport.HEIGHT * 0.4, FontKeys.BOLD_PLASTIC, 'Phaser Project Starter')
 			.setOrigin(0.5)

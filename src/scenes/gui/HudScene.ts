@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import Viewport from '~/constants/DisplayKeys'
 
 import SceneKeys from '~/constants/SceneKeys'
 import TextureKeys from '~/constants/TextureKeys'
@@ -23,6 +24,7 @@ export default class HudScene extends Phaser.Scene
 
 	create()
 	{
-
-	}
+		this.add.bitmapText(Viewport.CENTER.x, Viewport.HEIGHT * 0.4, FontKeys.CLEAN_PLATE, 'Demo Scene')
+			.setOrigin(0.5)
+		}
 }
