@@ -1,0 +1,7 @@
+body {
+  background-color: rgb(113, 119, 144);
+  background-image: radial-gradient(circle, rgba(160, 173, 226, 1) 0%, rgba(113, 119, 144, 1) 100%);
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+}
