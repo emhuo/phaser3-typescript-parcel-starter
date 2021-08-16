@@ -1,9 +1,8 @@
-const ASPECT_RATIO = { w: 3, h: 2 }
-const baseSize = 8
-const globalScale = 2
+const ASPECT_RATIO = { w: 4, h: 3 }
+const width = ASPECT_RATIO.w * 80
+const height = ASPECT_RATIO.h * 80
 
-const width = ASPECT_RATIO.w * globalScale * baseSize * 10
-const height = ASPECT_RATIO.h * globalScale * baseSize * 10
+const globalScale = 2
 
 const centerPos = {
   x: width / 2,

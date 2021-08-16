@@ -24,7 +24,7 @@ export default class Preload extends Phaser.Scene
 
 	create()
 	{
-		this.scene.stop(SceneKeys.LOADING)
-		this.scene.start(SceneKeys.TITLE_SCENE)
+		// this.scene.stop(SceneKeys.LOADING)
+		// this.scene.start(SceneKeys.TITLE_SCENE)
 	}
 }

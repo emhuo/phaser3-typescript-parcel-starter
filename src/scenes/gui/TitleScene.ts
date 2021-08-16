@@ -5,6 +5,7 @@ import TextureKeys from '~/constants/TextureKeys'
 import FontKeys from '~/constants/FontKeys'
 
 import Viewport from '~/constants/DisplayKeys'
+import RepeatingBackground from '../../components/RepeatingBackground'
 
 export default class TitleScene extends Phaser.Scene
 {

@@ -6,6 +6,8 @@ import FontKeys from '~/constants/FontKeys'
 
 import Viewport from '~/constants/DisplayKeys'
 
+import { loadEllipses } from '../../effects/tweens/EllipsesTween'
+
 const GLASS = {
   topLeft: 0xB3C0FF,
   topRight: 0xDFE7FF,
@@ -22,6 +24,7 @@ export default class Loading extends Phaser.Scene
 
 	create()
 	{
+    loadEllipses(this)
     this.add.graphics()
       .fillGradientStyle(GLASS.topLeft, GLASS.topRight, GLASS.bottomLeft, GLASS.bottomRight, 0.5)
       .fillRect(0, 0, Viewport.WIDTH, Viewport.HEIGHT)

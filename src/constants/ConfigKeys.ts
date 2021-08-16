@@ -34,7 +34,7 @@ const RenderConfig: Phaser.Types.Core.RenderConfig = {
 
 const ScaleConfig: Phaser.Types.Core.ScaleConfig = {
 	parent: ElementKeys.GAME_CONTAINER,
-  expandParent: true,   /* Adjust CSS height property of parent and/or document body to 100% */
+  // expandParent: false,   /* Adjust CSS height property of parent and/or document body to 100% */
   width: Viewport.WIDTH,
   height: Viewport.HEIGHT,
   mode: Phaser.Scale.FIT,
