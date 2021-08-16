@@ -6,7 +6,7 @@ import TextureKeys from '~/constants/TextureKeys'
 import FontKeys from '~/constants/FontKeys'
 
 import { addDitherGradient } from '../../utils/GraphicUtils'
-import RepeatingBackground from '../../components/background/RepeatingBackground'
+import RepeatingBackground from '../../entities/background/RepeatingBackground'
 
 export default class DemoScene extends Phaser.Scene
 {

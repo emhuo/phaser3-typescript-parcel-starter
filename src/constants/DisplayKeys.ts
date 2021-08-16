@@ -1,7 +1,7 @@
 const ASPECT_RATIO = { w: 3, h: 2 }
-const BASE_SIZE = 4
+const BASE_SIZE = 8
 
-const globalScale = 2
+const globalScale = 1
 const width = ASPECT_RATIO.w * globalScale * BASE_SIZE * 10
 const height = ASPECT_RATIO.h * globalScale * BASE_SIZE * 10
 
