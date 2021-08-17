@@ -24,7 +24,7 @@ export default class HudScene extends Phaser.Scene
 
 	create()
 	{
-		this.add.bitmapText(Viewport.CENTER.x, Viewport.HEIGHT * 0.4, FontKeys.CLEAN_PLATE, 'Demo Scene')
+		this.add.bitmapText(Viewport.CENTER.x, Viewport.CENTER.y, FontKeys.CLEAN_PLATE, 'Demo Scene')
 			.setOrigin(0.5)
 		}
 }
