@@ -1,7 +1,8 @@
-## Phaser 3 Typescript Starter
+<div align="center">
+<h1> Phaser 3.5 + Typescript + Parcel Starter Project </h2>
+
 ![Project Banner](https://github.com/emhuo/phaser3-typescript-parcel-starter/blob/main/public/img/media/readme-banner.png?raw=true)
 
-<div align="center">
 A work in progress custom Phaser template that uses Typescript and Parcel for bundling.
 <br>Includes basic helpers and examples meant to expedite development during game jams.
 <p>
