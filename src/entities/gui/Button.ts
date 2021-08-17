@@ -1,16 +1,17 @@
 import Phaser from 'phaser'
-import { IButton } from '../../types/IButton'
 
 const CLEAR_TINT = 0xFFFFFF
 const DISABLED_TINT = 0x999999
 
-export default class Button extends Phaser.GameObjects.Container implements IButton
+export default class Button extends Phaser.GameObjects.Container
 {
   scene: Phaser.Scene
   private texture: { key: string, upFrame: string, overFrame: string, downFrame: string, disabledFrame: string }
   private buttonBase: Phaser.GameObjects.Sprite
+
   private buttonIcon?: Phaser.GameObjects.Sprite
   private buttonText?: Phaser.GameObjects.BitmapText
+
   private buttonContent: GuiContent[] = []
   private observers: ObserverCallback[] = []
   private contentDownY = 1

@@ -14,7 +14,7 @@ export default class RepeatingBackground extends Phaser.GameObjects.TileSprite
     this.scrollFactor = { x: scrollX, y: scrollY}
     this.speed = speed
 
-    this.setOrigin(0) //.setScale(Viewport.SCALE)
+    this.setOrigin(0) 
     this.scene.add.existing(this)
 
     this.scene.events.on(Phaser.Scenes.Events.POST_UPDATE, this.updateBackground, this)
