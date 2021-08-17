@@ -44,10 +44,8 @@ export default class TitleScene extends Phaser.Scene
 			testModal.toggleModal()
 		//	openExternalWindow('https://emhuo.itch.io/')
 		})
-		const titleText = this.add.bitmapText(Viewport.CENTER.x, Viewport.HEIGHT * 0.4, FontKeys.BOLD_PLASTIC, 'Phaser Project Starter')
-			.setOrigin(0.5)
-
-		const startPrompt = this.add.sprite(Viewport.CENTER.x, Viewport.HEIGHT * 0.75, TextureKeys.START_PROMPT)
+		this.add.bitmapText(Viewport.CENTER.x, Viewport.HEIGHT * 0.4, FontKeys.BOLD_PLASTIC, 'Phaser Project Starter').setOrigin(0.5)
+		this.add.sprite(Viewport.CENTER.x, Viewport.HEIGHT * 0.75, TextureKeys.START_PROMPT).setOrigin(0.5)
 			.play({ key: 'pink-button', frameRate: 6, repeat: -1, repeatDelay: 800 })
 
 		this.input.keyboard.once('keydown-ENTER', () => {
