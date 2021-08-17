@@ -5,10 +5,13 @@ import SceneKeys from '~/constants/SceneKeys'
 import TextureKeys from '~/constants/TextureKeys'
 import FontKeys from '~/constants/FontKeys'
 
-import { addRepeatingColumns } from '~/utils/GraphicUtils'
 import CameraControls from '../../effects/CameraControls'
-import Button from '../../entities/gui/Button'
+
+import { addRepeatingColumns } from '~/utils/GraphicUtils'
 import { openExternalWindow } from '~/utils/PageUtils'
+
+import Button from '../../entities/gui/Button'
+import Modal from '../../entities/gui/Modal'
 
 export default class TitleScene extends Phaser.Scene
 {
@@ -31,12 +34,15 @@ export default class TitleScene extends Phaser.Scene
 	{
 		addRepeatingColumns(this)
 
+		const testModal = new Modal(this, TextureKeys.DIALOGUE_PANEL, false)
+
 		const socialButton = new Button(
 			this, 24, 24, TextureKeys.BUTTON_WHITE_FRAME, 'indigo-square-up','indigo-square-over','indigo-square-down'
 		).setIcon(TextureKeys.SYSTEM_ICONS, 'info')
 
 		socialButton.subscribe(() => {
-			openExternalWindow('https://emhuo.itch.io/')
+			testModal.toggleModal()
+		//	openExternalWindow('https://emhuo.itch.io/')
 		})
 		const titleText = this.add.bitmapText(Viewport.CENTER.x, Viewport.HEIGHT * 0.4, FontKeys.BOLD_PLASTIC, 'Phaser Project Starter')
 			.setOrigin(0.5)

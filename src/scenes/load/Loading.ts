@@ -16,6 +16,6 @@ export default class Loading extends Phaser.Scene
 	create()
 	{
 		addGradientOverlay(this)
-    Tweens.addLoadEllipses(this)
+    Tweens.playLoadingEllipses(this)
 	}
 }

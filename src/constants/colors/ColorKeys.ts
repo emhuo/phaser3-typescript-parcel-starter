@@ -3,6 +3,10 @@ enum SkyColors
   OVERCAST = 0x8A94B9,
   SNOWY = 0xA0ADE2,
   SUNNY = 0x5C6FCC,
-  NIGHT = 0x4A5C74
+  SUNSET = 0x9199F0,
+  TWILIGHT = 0x717790,
+  DUSK = 0x475877,
+  EVENING = 0x4A5C74,
+  MIDNIGHT = 0x2C3751
 }
 export default SkyColors

@@ -9,6 +9,13 @@ const PageBackground = {
   }
 }
 
+const DarkOverlay = {
+  topLeft: 0x717790,
+  topRight: 0x2C3751,
+  bottomLeft: 0x2C3751,
+  bottomRight: 0x717790
+}
+
 const GlassOverlay = {
   topLeft: 0xB3C0FF,
   topRight: 0xDFE7FF,
@@ -18,6 +25,7 @@ const GlassOverlay = {
 
 const GradientKeys = {
   BACKGROUND: PageBackground,
+  DARK_OVERLAY: DarkOverlay,
   GLASS_OVERLAY: GlassOverlay
 }
 

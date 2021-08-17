@@ -30,9 +30,10 @@ export const addGradientOverlay = (
   topL = GRADIENT.topLeft, topR = GRADIENT.topRight,
   bottomL = GRADIENT.bottomLeft,bottomR = GRADIENT.bottomRight,
   alpha = 0.5 ) => {
-    scene.add.graphics()
+  const gradient = scene.add.graphics()
     .fillGradientStyle(topL, topR, bottomL, bottomR, alpha)
     .fillRect(0, 0, Viewport.WIDTH, Viewport.HEIGHT)
+  return gradient
 }
 
 export const addRepeatingColumns = (scene: Phaser.Scene, numColumns = 9, colorA = 0xB3C0FF, colorB = 0xC8D6FF) => {

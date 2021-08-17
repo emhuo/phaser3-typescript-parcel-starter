@@ -31,6 +31,9 @@ export default class Preload extends Phaser.Scene
 		this.load.image(TextureKeys.CLOUDS, 'clouds.png')
 		this.load.image(TextureKeys.PAW_TILE, 'paw-tile.png')
 
+		this.load.setPath('img/gfx/')
+		this.load.image(TextureKeys.VIGNETTE, 'vignette.png')
+
 		this.load.setPath('img/gui/')
 		this.load.atlas(TextureKeys.BUTTON_WHITE_FRAME, 'button-white-frame.png', 'button-white-frame.json')
 		this.load.image(TextureKeys.DIALOGUE_PANEL, 'dialogue-panel.png')

@@ -1,9 +1,13 @@
 enum TextureKeys
 {
+  /*** Background ***/
   CLOUDS = 'clouds',
   PAW_TILE = 'paw-tile',
 
-  /*** Icons ***/
+  /*** GFX ***/
+  VIGNETTE = 'vignette',
+
+  /*** GUI ***/
   BUTTON_WHITE_FRAME = 'button-white-frame',
   DIALOGUE_PANEL = 'dialogue-panel',
   START_PROMPT = 'start-prompt',

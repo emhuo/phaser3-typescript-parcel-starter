@@ -4,8 +4,8 @@ import Viewport from '~/constants/DisplayKeys'
 enum TweenTime
 {
   TOTAL = 400,
-  OFFSET = 300,
-  FADE = 100,
+  DOT_OFFSET = 300,
+  FADE_OUT = 100,
 }
 
 const createDots = (scene: Phaser.Scene, dotSize: number, dotColor: number) => {
@@ -21,29 +21,37 @@ const createDots = (scene: Phaser.Scene, dotSize: number, dotColor: number) => {
   return dots
 }
 
-const createDotsTween = (scene: Phaser.Scene, dots: Phaser.GameObjects.Arc[] = []) => {
+const createTweenTimeline = (scene: Phaser.Scene, dots: Phaser.GameObjects.Arc[] = []) => {
+
   const tweenTimeline = scene.tweens.timeline({ loop: -1 })
 
   let offset = 0
+
+  /*** TO DO: replace with stagger? ***/
   for (let i = 0; i < dots.length; ++i)
   {
     const dot = dots[i]
     dot.setAlpha(0)
-    tweenTimeline.add({
+
+    const fadeInTween = {
       targets: dot,
       alpha: 1,
       duration: TweenTime.TOTAL,
       ease: Phaser.Math.Easing.Sine.In,
       offset
-    })
-    offset += TweenTime.OFFSET
+    }
+
+    tweenTimeline.add(fadeInTween)
+    offset += TweenTime.DOT_OFFSET
   }
 
-  tweenTimeline.add({
+  const fadeOutTween = {
     targets: dots,
     alpha: 0,
-    duration: TweenTime.FADE
-  })
+    duration: TweenTime.FADE_OUT
+  }
+  tweenTimeline.add(fadeOutTween)
+
   return tweenTimeline
 }
 
@@ -53,10 +61,12 @@ const getEllipsesOffset = (dotSize: number) => {
   return offset
 }
 
-export const addLoadEllipses = (scene: Phaser.Scene, x = Viewport.CENTER.x, y = Viewport.CENTER.y, dotSize = 8, dotColor = 0xFFFFFF) => {
+export const playLoadingEllipses = (scene: Phaser.Scene, x = Viewport.CENTER.x, y = Viewport.CENTER.y, dotSize = 8, dotColor = 0xFFFFFF) => {
   const dots = createDots(scene, dotSize, dotColor)
-  const dotsTween = createDotsTween(scene, dots)
+
+  const dotsTween = createTweenTimeline(scene, dots)
   dotsTween.play()
+
   const offsetX = getEllipsesOffset(dotSize)
   scene.add.container(x - offsetX, y, dots)
 }
