@@ -3,7 +3,7 @@ import Viewport from './DisplayKeys'
 enum ElementKeys
 {
   GAME_CONTAINER = 'game-container',
-  CANVAS_WRAPPER = 'canvas-wrapper'
+  PAGE = 'page'
 }
 
 const PhysicsConfig = {

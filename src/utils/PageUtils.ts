@@ -1,7 +1,7 @@
 import { ElementKeys } from '~/constants/ConfigKeys'
 
 const addCanvasBackground = (imageUrl: string) => {
-  var div = document.getElementById(ElementKeys.CANVAS_WRAPPER)
+  var div = document.getElementById(ElementKeys.PAGE)
   const style = `url(${imageUrl})`
   if (!div) { return }
   div.style.background = style
